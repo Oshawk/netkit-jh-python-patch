@@ -12,7 +12,7 @@ print("Copying files:")
 for source_file in source_directory.iterdir():
     destination_file = install_directory / source_file.name
     print(f"  Copying {source_file} to {destination_file}.")
-    copyfile(source_file, source_file)
+    copyfile(source_file, destination_file)
 
 print("Making wrapper scripts:")
 wrapper_directory = common.netkit_home / "bin"
