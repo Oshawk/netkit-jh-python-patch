@@ -2,7 +2,7 @@ from shutil import copyfile
 
 from . import common
 
-source_directory = common.resolved_file(__name__)
+source_directory = common.resolved_file(__file__)
 
 print("Making install directory.")
 install_directory = common.netkit_home / "netkit_python"
