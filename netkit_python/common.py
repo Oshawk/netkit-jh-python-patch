@@ -90,6 +90,8 @@ def verbose(verbose_):
         logger.setLevel(level=logging.INFO)
 
 
+netkit_python_home = resolved_file(__file__).parent
+
 # Get the Netkit home from NETKIT_HOME or the legacy VLAB_HOME.
 netkit_home = None
 for environment_variable in ("NETKIT_HOME", "VLAB_HOME"):
@@ -104,7 +106,7 @@ if netkit_home is None:
 
 # Load the configuration. To reduce complexity a shell script is used.
 config = {}
-for line in check_output(("/bin/sh", netkit_home / "netkit_python" / "load_config.sh", netkit_home)).decode().split("\n"):
+for line in check_output(("/bin/sh", netkit_python_home / "load_config.sh", netkit_home)).decode().split("\n"):
     line = line.strip().split()
 
     if len(line) >= 2:
